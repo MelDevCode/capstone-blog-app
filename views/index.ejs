@@ -29,6 +29,13 @@
             <div class="card">
                 <h3>Title:</h3><p><%= posts[i].title %></p>
                 <h3>Post:</h3><p><%= posts[i].postText %></p>
+                <p>Id: <%= posts[i].id %></p>
+                <p>Created on: <%= posts[i].date %></p>
+                <p>Characters: <%= posts[i].charCounter %></p>
+                <form action="/delete" method="POST">
+                  <button type="submit" value="<%= posts[i].id %>" name="delete">Delete</button>
+                </form>
+                
             </div>
         <% } %>
     <% } else { %>
