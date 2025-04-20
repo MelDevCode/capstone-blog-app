@@ -33,12 +33,10 @@
                 <p>Created on: <%= posts[i].date %></p>
                 <p>Characters: <%= posts[i].charCounter %></p>
                 <form action="/delete" method="POST">
-                  <button type="submit" value="<%= posts[i].id %>" name="delete">Delete</button>
+                  <input type="hidden" name="id" value="<%= posts[i].id %>">
+                  <button type="submit">Delete</button>
                 </form>
-                <form action="/edit" method="POST">
-                  <button type="submit" value="<%= posts[i].id %>" name="edit">Edit</button>
-                </form>
-                
+                <a href="/edit/<%= posts[i].id %>">Edit</a>
             </div>
         <% } %>
     <% } else { %>

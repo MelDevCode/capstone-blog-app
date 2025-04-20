@@ -21,23 +21,20 @@ app.post("/newPost", (req, res) => {
 });
 
 app.post("/delete", (req, res) => {
-    const identifier = parseInt(req.body["delete"], 10);
+    const identifier = parseInt(req.body["id"], 10);
     const index = postData.findIndex(post => post.id === identifier);
     postData.splice(index, 1);
     res.render("index", { posts: postData });
 });
 
-app.post("/edit", (req, res) => {
-    const identifier = parseInt(req.body["edit"], 10);
-    const index = postData.findIndex(post => post.id === identifier);
-    console.log(index);
-    const postToEdit = postData[index];
-    console.log(postToEdit);
-    res.render("edit.ejs", { post: postToEdit });
+app.get("/edit/:id", (req, res) => {
+    const identifier = parseInt(req.params.id, 10);
+    const postToEdit = postData.find(post => post.id === identifier);
+    res.render("edit", { post: postToEdit});
 });
 
-app.post("/update", (req, res) => {
-    const identifier = parseInt(req.body["update"], 10);
+app.post("/edit", (req, res) => {
+    const identifier = parseInt(req.body["id"], 10);
     const editedPost = postData.find(({id}) => id === identifier);
     editedPost.title = req.body["ptitle"];
     editedPost.postText = req.body["ptext"];

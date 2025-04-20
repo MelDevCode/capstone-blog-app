@@ -12,12 +12,13 @@
     <h2>Please edit and save your changes to update the post.</h2>
 
     <div>
-        <form action="/update" method="POST">
+        <form action="/edit" method="POST">
+            <input type="hidden" name="id" value="<%= post.id %>">
             <label>Post title:</label>
-            <input type="text" id="ptitle" name="ptitle" value="<%= post.title %>" contenteditable="true">
+            <input type="text" id="ptitle" name="ptitle" value="<%= post.title %>">
             <label>Post:</label>
-            <input type="text" id="ptext" name="ptext" value="<%= post.postText %>" contenteditable="true">
-            <button type="submit" name="update" value="<%= post.id %>">Save</button>
+            <input type="text" id="ptext" name="ptext" value="<%= post.postText %>">
+            <button type="submit">Save</button>
         </form>
     </div>
 
