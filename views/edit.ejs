@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Blog</title>
+    <link rel="stylesheet" href="/styles/styles.css" />
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %>
+
+    <h1>My Blog Web App</h1>
+    <h2>Please edit and save your changes to update the post.</h2>
+
+    <div>
+        <form action="/update" method="POST">
+            <label>Post title:</label>
+            <input type="text" id="ptitle" name="ptitle" value="<%= post.title %>" contenteditable="true">
+            <label>Post:</label>
+            <input type="text" id="ptext" name="ptext" value="<%= post.postText %>" contenteditable="true">
+            <button type="submit" name="update" value="<%= post.id %>">Save</button>
+        </form>
+    </div>
+
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>
